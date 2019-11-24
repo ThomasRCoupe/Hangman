@@ -14,9 +14,9 @@ export class GuessWordHelper {
         }
         let guessCorrect: boolean = false;
         guessWord.guessWord.forEach(guessLetter => {
-            if(guessLetter.Letter() === character) {
-                guessLetter.guessed == true;
-                guessCorrect == true;
+            if(guessLetter.Letter().toUpperCase() === character.toUpperCase()) {
+                guessLetter.guessed = true;
+                guessCorrect = true;
             }
         });
 
