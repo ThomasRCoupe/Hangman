@@ -5,7 +5,8 @@
       "declaration": false,
       "outDir": "./out",
       "strict": true,
-      "noImplicitAny": false
+      "noImplicitAny": false,
+      "strictPropertyInitialization": false
     },
     "include": [
         "src/**/*"
