@@ -17,9 +17,9 @@ export class ClientController {
 
     displayGameState(warning?: string) {
         if(this.gameService.getIsGameOver()) {
-            this.clientView.displayGameOver();
+            this.clientView.displayGameOver(this.gameService.getWordAfterGameIsFinished());
         } else if(this.gameService.getIsGameWon()) {
-            this.clientView.displayVictory();
+            this.clientView.displayVictory(this.gameService.getWordAfterGameIsFinished());
         } else {
             this.clientView.promptTurn(this.gameService.getLives(), this.gameService.getGuessWord(), warning);
         }

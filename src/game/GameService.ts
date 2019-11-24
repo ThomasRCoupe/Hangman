@@ -60,6 +60,13 @@ export class GameService implements IGameService {
      * Gets whether the game has been won.
      */
     getIsGameWon(): boolean {
-        return this.gameStateManager.getIsGameWon();
+        return this.gameStateManager.isGameWon();
+    }
+
+    /**
+     * Can be used to obtain the word for display at the end of the game, where it will not allow players to cheat.
+     */
+    getWordAfterGameIsFinished(): string | null {
+        return this.gameStateManager.getWordAfterGameIsFinished();
     }
 }

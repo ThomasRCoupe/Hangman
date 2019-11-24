@@ -34,4 +34,9 @@ export interface IGameService {
      * Starts a new game.
      */
     newGame(): void;
+
+    /**
+     * Can be used to obtain the word for display at the end of the game, where it will not allow players to cheat.
+     */
+    getWordAfterGameIsFinished(): string | null;
 }

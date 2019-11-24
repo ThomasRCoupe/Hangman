@@ -25,9 +25,15 @@ export class GameStateManager {
 
     public makeGuess(character: string) {
         //TODO: character validation
-        if(!GuessWordHelper.guessLetter(character, this.gameState.guessWord)) {
-            this.gameState.lives--;
+        try {
+            var guessCorrect = GuessWordHelper.guessLetter(character, this.gameState.guessWord);
+            if(!guessCorrect) {
+                this.gameState.lives--;
+            }
+        } catch {
+            //The submitted sting was invalid; do nothing.
         }
+        
     }
 
     public createGuessString(): string{
@@ -46,7 +52,18 @@ export class GameStateManager {
         return GuessWordHelper.getAmountOfLettersToGuess(this.gameState.guessWord);
     }
 
-    public getIsGameWon(): boolean {
+    public isGameWon(): boolean {
         return GuessWordHelper.haveAllLettersBeenGuessed(this.gameState.guessWord);
+    }
+
+    /**
+     * Can be used to obtain the word for display at the end of the game, where it will not allow players to cheat.
+     * Otherwise, it returns null.
+     */
+    public getWordAfterGameIsFinished(): string | null {
+        if(this.isGameOver() || this.isGameWon()) {
+            return this.gameState.guessWord.word;
+        } 
+        return null;
     }
 }

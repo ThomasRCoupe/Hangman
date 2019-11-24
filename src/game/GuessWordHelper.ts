@@ -3,8 +3,9 @@ import { GuessWord } from "./GuessWord";
 export class GuessWordHelper {
 
     /**
-     * Returns true if the guess is correct. If a letter is guessed, all occurences of that letter within
-     * the guess word will have their 'guessed' property set to true.
+     * Returns true if the guess is correct.
+     * If a letter is guessed, all occurences of that letter within the guess word will have their 'guessed' 
+     * property set to true.
      * @param character The character that is guessed.
      * @param guessWord The GuessWord to check.
      */

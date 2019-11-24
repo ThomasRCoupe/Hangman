@@ -29,12 +29,19 @@ export class ClientView {
         })
     }
 
-    public displayGameOver() {
+    /**
+     * @param word The word that the player was guessing.
+     */
+    public displayGameOver(word: string | null) {
         console.clear();
         console.log("HANGMAN");
         console.log("\n");
         console.log("GAME OVER!");
         console.log("\n");
+        if(word) {
+            console.log(`The word was ${word}`);
+            console.log("\n");
+        }
 
         this.rl.question('Retry?[Y/N]: ', (answer) => {
             if(answer == 'Y' || answer == 'y') {
@@ -45,12 +52,19 @@ export class ClientView {
         })
     }
 
-    public displayVictory() {
+    /**
+     * @param word The word that the player was guessing.
+     */
+    public displayVictory(word: string | null) {
         console.clear();
         console.log("HANGMAN");
         console.log("\n");
         console.log("YOU WON!");
         console.log("\n");
+        if(word) {
+            console.log(`The word was ${word}`);
+            console.log("\n");
+        }
 
         var rl = readline.createInterface({
             input: process.stdin,
