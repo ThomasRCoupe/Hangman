@@ -1,0 +1,1 @@
+export { IDictionaryService } from './IDictionaryService';
