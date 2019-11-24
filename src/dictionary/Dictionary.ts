@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 export class Dictionary {
-    readonly dictionaryURL = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt";
+    readonly dictionaryURL = "../resource/words_alpha.txt";
     words : string[];
 
     constructor() {
