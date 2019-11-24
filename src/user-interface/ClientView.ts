@@ -24,7 +24,8 @@ export class ClientView {
         });
 
         rl.question('Guess a letter: ', (answer) => {
-
+            this.clientController.makeGuess(answer);
+            rl.close();
         })
     }
 
@@ -44,6 +45,7 @@ export class ClientView {
             if(answer == 'Y' || answer == 'y') {
                 this.clientController.launch();
             }
+            rl.close();
         })
     }
 
@@ -63,6 +65,7 @@ export class ClientView {
             if(answer == 'Y' || answer == 'y') {
                 this.clientController.launch();
             }
+            rl.close();
         })
     }
 }
