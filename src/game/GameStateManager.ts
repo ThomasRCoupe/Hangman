@@ -20,7 +20,7 @@ export class GameStateManager {
         while(word.length < 3) {
             word = this.dictionaryService.getRandomWord();
         }
-        this.gameState = new GameState(word, 5);
+        this.gameState = new GameState(word);
     }
 
     public makeGuess(character: string) {
