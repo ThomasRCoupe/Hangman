@@ -11,6 +11,6 @@ export class Dictionary {
     
     getRandomWord(): string {
         var word = this.words[Math.floor(Math.random() * this.words.length)];
-        return word;
+        return word.trim().replace('\n', '');
     }
 }
