@@ -1,0 +1,1 @@
+export { HangmanClient } from './HangmanClient';
