@@ -2,10 +2,15 @@ import * as readline from 'readline';
 import { ClientController } from './ClientController';
 
 export class ClientView {
-    clientController: ClientController;
+    private clientController: ClientController;
+    private rl: readline.Interface;
 
     constructor(clientController: ClientController) {
         this.clientController = clientController;
+        this.rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
     }
 
     public promptTurn(lives: number, guessWord: string, warning?: string) {
@@ -18,14 +23,9 @@ export class ClientView {
             console.log(warning);
         }
         console.log("\n");
-        var rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
 
-        rl.question('Guess a letter: ', (answer) => {
+        this.rl.question('Guess a letter: ', (answer) => {
             this.clientController.makeGuess(answer);
-            rl.close();
         })
     }
 
@@ -36,16 +36,12 @@ export class ClientView {
         console.log("GAME OVER!");
         console.log("\n");
 
-        var rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
-
-        rl.question('Retry?[Y/N]: ', (answer) => {
+        this.rl.question('Retry?[Y/N]: ', (answer) => {
             if(answer == 'Y' || answer == 'y') {
                 this.clientController.launch();
+            } else {
+                this.rl.close();
             }
-            rl.close();
         })
     }
 
@@ -64,8 +60,9 @@ export class ClientView {
         rl.question('Play Again?[Y/N]: ', (answer) => {
             if(answer == 'Y' || answer == 'y') {
                 this.clientController.launch();
+            } else {
+                this.rl.close();
             }
-            rl.close();
         })
     }
 }
