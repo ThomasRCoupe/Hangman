@@ -5,11 +5,12 @@ export class Dictionary {
     words : string[];
 
     constructor() {
-        //TODO: Potentially increase efficienct.
+        //TODO: Potentially increase efficiency.
         this.words = fs.readFileSync(this.dictionaryURL, 'utf8').split('\n');
     }
     
     getRandomWord(): string {
-        return this.words[Math.floor(Math.random() * this.words.length)];
+        var word = this.words[Math.floor(Math.random() * this.words.length)];
+        return word;
     }
 }

@@ -52,12 +52,13 @@ export class GuessWordHelper {
     }
 
     public static haveAllLettersBeenGuessed(guessWord: GuessWord) {
+        var haveAllLettersBeenGuessed = true;
         guessWord.guessWord.forEach(guessLetter => {
             if(!guessLetter.guessed) {
-                return false;
+                haveAllLettersBeenGuessed = false;
             }
         });
 
-        return true;
+        return haveAllLettersBeenGuessed;
     }
 }
